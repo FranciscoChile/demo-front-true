@@ -1,8 +1,8 @@
 export class UserRecord {
     id!: number;
-    operationId!: string;
-    userId!: string;
-    amount!: string;
-    userBalance!: Date;
+    operationId!: number;
+    userId!: number;
+    amount!: number;
+    operationResponse!: number;
     date!: Date;
   }

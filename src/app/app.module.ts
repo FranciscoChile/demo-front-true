@@ -8,6 +8,8 @@ import { OperationComponent } from './features/operation/operation.component';
 import { RecordComponent } from './features/record/record.component';
 import { FilterPipe } from './services/filter.pipe'
 import { provideHttpClient } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { LoginComponent } from './features/login/login.component';
 
 @NgModule({
   declarations: [
@@ -15,11 +17,12 @@ import { provideHttpClient } from '@angular/common/http';
     NavigationComponent,
     OperationComponent,
     RecordComponent,
-    FilterPipe
+    FilterPipe,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule, FormsModule
   ],
   providers: [provideHttpClient()],
   bootstrap: [AppComponent]

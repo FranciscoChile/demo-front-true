@@ -14,7 +14,8 @@ export class RecordComponent implements OnInit {
   userRecordList: UserRecord[]  = [];
 
   searchText = "";
-
+  flagSort = true;
+  
   ngOnInit(): void {    
     this.getList();
   }
@@ -30,6 +31,10 @@ export class RecordComponent implements OnInit {
 
           c.id = elem.id;
           c.operationId = elem.operationId;
+          c.userId = elem.userId;
+          c.amount = elem.amount;
+          c.operationResponse = elem.operationResponse;
+          c.date = elem.date;
 
           return c;
         });
@@ -41,7 +46,14 @@ export class RecordComponent implements OnInit {
 
   }
 
-  sortList() {}
+  sortList() {
+    if (this.flagSort)
+      this.userRecordList.sort((a,b) => (a.date > b.date) ? 1 : ((b.date > a.date) ? -1 : 0))
+    else 
+      this.userRecordList.sort((a,b) => (a.date < b.date) ? 1 : ((b.date < a.date) ? -1 : 0))
+    
+      this.flagSort = !this.flagSort;
+  }
 
   nextPage() {
 
@@ -49,6 +61,18 @@ export class RecordComponent implements OnInit {
 
 
   previousPage() {
+
+  }
+
+  delete(id: number) {
+    this.api.deleteUserRecords(id).subscribe({
+      next: (data) => {
+        this.getList();
+      },      
+      error: (e) => {
+        console.log('Error');
+      }
+    });
 
   }
 

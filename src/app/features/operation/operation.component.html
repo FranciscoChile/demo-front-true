@@ -1,15 +1,76 @@
 <section class="text-gray-600 body-font">
     <div class="container px-5 mx-auto">
 
-      <div class="pb-10 flex">
 
-        
-      </div>
+        <div class="grid gap-6 mb-6 md:grid-cols-3 w-1/2">
+            <div>
+                <input type="text" id="first_number_a" [(ngModel)]="first_number_a" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:border-gray-600 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"  />
+            </div>
+            <div>
+                <input type="text" id="second_number_a" [(ngModel)]="second_number_a" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:border-gray-600 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"  />
+            </div>
+            <div>
+                <button type="submit" (click)="addition()" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Addition</button>
+            </div>
+        </div>
 
-      <div class="flex flex-wrap -m-4" >
- 
-      </div>
+        <div class="grid gap-6 mb-6 md:grid-cols-3 w-1/2">
+          <div>
+              <input type="text" id="first_number_s" [(ngModel)]="first_number_s" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:border-gray-600 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"  />
+          </div>
+          <div>
+              <input type="text" id="second_number_s" [(ngModel)]="second_number_s" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:border-gray-600 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"  />
+          </div>
+          <div>
+              <button type="submit" (click)="subtraction()" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Subtraction</button>
+          </div>
+        </div>
+
+        <div class="grid gap-6 mb-6 md:grid-cols-3 w-1/2">
+          <div>
+              <input type="text" id="first_number_m" [(ngModel)]="first_number_m" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:border-gray-600 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"  />
+          </div>
+          <div>
+              <input type="text" id="second_number_m" [(ngModel)]="second_number_m" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:border-gray-600 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"  />
+          </div>
+          <div>
+              <button type="submit" (click)="multiplication()" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Multiplication</button>
+          </div>
+        </div>
+
+        <div class="grid gap-6 mb-6 md:grid-cols-3 w-1/2">
+          <div>
+              <input type="text" id="first_number_d" [(ngModel)]="first_number_d" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:border-gray-600 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"  />
+          </div>
+          <div>
+              <input type="text" id="second_number_d" [(ngModel)]="second_number_d" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:border-gray-600 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"  />
+          </div>
+          <div>
+              <button type="submit" (click)="division()" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Division</button>
+          </div>
+        </div>
+
+        <div class="grid gap-6 mb-6 md:grid-cols-3 w-1/2">
+          <div>
+              <input type="text" id="first_number_sq" [(ngModel)]="first_number_sq" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:border-gray-600 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"  />
+          </div>
+          <div>
+              <button type="submit" (click)="squareRoot()" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Square Root</button>
+          </div>
+        </div>
+
+        <div class="grid gap-6 mb-6 md:grid-cols-3 w-1/2">
+          <div>
+              <input type="text" disabled id="random_string" [(ngModel)]="random_string" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:border-gray-600 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"  />
+          </div>
+          <div>
+              <button type="submit" (click)="randomString()" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Random String</button>
+          </div>
+        </div>
+
 
 
     </div>
   </section>
+
+  

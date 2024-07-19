@@ -4,27 +4,71 @@
       <div class="pb-10 flex">
       <input type="text" id="search-text" aria-describedby="search-text" 
       class="w-2/5 bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
-      (input)="searchRecord($event)" placeholder="Buscar" autofocus>
+      [(ngModel)]="searchText" placeholder="Buscar" autofocus>
 
       <button (click)="sortList()" class="flex mx-auto text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">Ordenar por fecha</button>
 
 
       </div>
 
-      <table class="table-auto">
-        <thead>
-          <tr>
-            <th>Id</th>
-            <th>Operation Id</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let n of userRecordList | appFilter: searchText">
-            <td>{{n.id}}</td>
-            <td>{{n.operationId}}</td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="relative overflow-x-auto">
+        <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+            <thead class="text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">
+                <tr>
+                    <th scope="col" class="px-6 py-3">
+                        Id
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Operation Id
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        User Id
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Amount
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Operation Response
+                  </th>
+                  <th scope="col" class="px-6 py-3">
+                    Date
+                  </th>
+                  <th scope="col" class="px-6 py-3">
+                    
+                  </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="bg-white border-b  dark:border-gray-700" *ngFor="let n of userRecordList | appFilter: searchText">
+                    <th scope="row" class="px-6 py-4 text-black">
+                      {{n.id}}
+                    </th>
+                    <td class="px-6 py-4 text-black">
+                      {{n.operationId}}
+                    </td>
+                    <td class="px-6 py-4 text-black">
+                      {{n.userId}}
+                    </td>
+                    <td class="px-6 py-4 text-black">
+                      {{n.amount}}
+                    </td>
+                    <td class="px-6 py-4 text-black">
+                      {{n.operationResponse}}
+                    </td>
+                    <td class="px-6 py-4 text-black">
+                      {{n.date | date: 'dd/MM/yyyy HH:mm'}}
+                    </td>                    
+                    <td class="px-6 py-4">
+                      <div class="cursor-pointer" (click)="delete(n.id)" >
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1);transform: ;msFilter:;"><path d="M5 20a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8h2V6h-4V4a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2v2H3v2h2zM9 4h6v2H9zM8 8h9v12H7V8z"></path><path d="M9 10h2v8H9zm4 0h2v8h-2z"></path></svg>
+                    </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+      </div>
+
+
 
 
       <div class="flex justify-center items-center">
