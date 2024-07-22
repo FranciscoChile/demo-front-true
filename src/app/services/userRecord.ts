@@ -1,6 +1,6 @@
 export class UserRecord {
     id!: number;
-    operationId!: number;
+    operationType!: string;
     userId!: number;
     amount!: number;
     operationResponse!: number;

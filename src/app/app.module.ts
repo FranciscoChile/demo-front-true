@@ -10,6 +10,8 @@ import { FilterPipe } from './services/filter.pipe'
 import { provideHttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './features/login/login.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,7 @@ import { LoginComponent } from './features/login/login.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule, FormsModule
+    AppRoutingModule, FormsModule, ReactiveFormsModule, NgxPaginationModule
   ],
   providers: [provideHttpClient()],
   bootstrap: [AppComponent]

@@ -6,7 +6,7 @@
       class="w-2/5 bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
       [(ngModel)]="searchText" placeholder="Buscar" autofocus>
 
-      <button (click)="sortList()" class="flex mx-auto text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">Ordenar por fecha</button>
+      <button (click)="sortList()" class="flex mx-auto text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">Sort by date</button>
 
 
       </div>
@@ -19,7 +19,7 @@
                         Id
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        Operation Id
+                        Operation
                     </th>
                     <th scope="col" class="px-6 py-3">
                         User Id
@@ -39,12 +39,12 @@
                 </tr>
             </thead>
             <tbody>
-                <tr class="bg-white border-b  dark:border-gray-700" *ngFor="let n of userRecordList | appFilter: searchText">
+                <tr class="bg-white border-b  dark:border-gray-700" *ngFor="let n of userRecordList | appFilter: searchText | paginate : pagingConfig">
                     <th scope="row" class="px-6 py-4 text-black">
                       {{n.id}}
                     </th>
                     <td class="px-6 py-4 text-black">
-                      {{n.operationId}}
+                      {{n.operationType}}
                     </td>
                     <td class="px-6 py-4 text-black">
                       {{n.userId}}
@@ -73,8 +73,11 @@
 
       <div class="flex justify-center items-center">
       <div class="p-2 w-2/5 flex" >
-        <button (click)="previousPage()" class="flex mx-auto text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">Anterior</button>
-        <button (click)="nextPage()" class="flex mx-auto text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">Siguiente</button>
+        <pagination-controls
+        previousLabel="Prev"
+        nextLabel="Next"
+        (pageChange)="onTableDataChange($event)">
+        </pagination-controls>
       </div>
       </div>
 
